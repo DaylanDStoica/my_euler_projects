@@ -79,3 +79,18 @@ def test_is_pandigital():
     x = [1234567890, 987654321, 3526174890]
     for y in x:
         print(f"{y} is pandigital: {is_pandigital(y)}")
+
+
+def build_list_of_substrings(number):
+    '''build the list of substrings, each of length 3, moving forward 1 index'''
+    # starting from second index, to +3 resulting in last index
+    substring_list = []
+    str_num = str(number)
+    for i in range(1, len(str_num) - 2):
+        substr = str_num[i: i+3]
+        substring_list.append(substr)
+    return substring_list
+
+# substr_list = build_list_of_substrings(1234567890)
+#     # '234 345 456 567 678 789 890'.split()
+# print(substr_list)
