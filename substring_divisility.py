@@ -24,3 +24,58 @@ Find the sum of all 0 to 9 pandigital numbers with this property.
 '''
 
 # each substring of 3 consecutive digits is divisible by an increasing prime
+
+# pandigital : 10 digit number, with each digit being of 0-9
+    # 1234567890
+
+digit_nums = '0 1 2 3 4 5 6 7 8 9'.split()
+# print(digit_nums)
+def is_pandigital( number):
+    '''check that the number is pandigital
+    length 10, has all of 0-9
+    return boolean'''
+    number = int(number)
+    str_num = str(number)
+    # if number >= 10**8 and len(str_num) == 10 and number <= 10**10:
+    #     # 0123456789 - 9876543210
+    #     print("10**")
+    # else:
+    #     return False
+    if number < 10**8 or number > 10**10:
+        # number either has too low or too high value to be possible
+        return False
+
+    if len(str_num) == 9:
+        # because 0 is not persisted in leading number for int
+        # restore the 0 in string form at the front
+        str_num = '0' + str_num
+
+    # digit_list = digit_nums
+    held_digits = []
+    for c in str_num:
+        # go through the digits of the number
+        # checking off the numbers as they are encountered, pop
+        # if not c in digit_list:
+        #     # c digit was already encountered, cannot do twice
+        #     return False
+        # else:
+        #     digit_list.remove(c) 
+        if c in held_digits:
+            # digit c is already encountered
+            return False
+        else:
+            held_digits.append(c)
+            
+
+    return True
+
+def test_is_pandigital():
+        
+    # is_pandigital(1234567890)
+    x = 1234567809
+    for y in range(x, x+90):
+        print(f"{y} is pandigital: {is_pandigital(y)}")
+
+    x = [1234567890, 987654321, 3526174890]
+    for y in x:
+        print(f"{y} is pandigital: {is_pandigital(y)}")
