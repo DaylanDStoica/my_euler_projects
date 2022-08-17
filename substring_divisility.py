@@ -83,6 +83,7 @@ def test_is_pandigital():
 
 def build_list_of_substrings(number):
     '''build the list of substrings, each of length 3, moving forward 1 index'''
+    # assumes length of at 5
     # starting from second index, to +3 resulting in last index
     substring_list = []
     str_num = str(number)
@@ -94,3 +95,43 @@ def build_list_of_substrings(number):
 # substr_list = build_list_of_substrings(1234567890)
 #     # '234 345 456 567 678 789 890'.split()
 # print(substr_list)
+
+
+# 1. build to check that number is pandigital
+# 2. once the pandigital is confirmed, build the substrings
+# 3. with the substring list of each pandigital, check for fitting the property
+    # property: the substring is divisible by increasing prime
+    # s1%2, s2%3, s3%5, s4%7
+
+from shared_math import is_prime
+
+def check_pandigital_substrs(number):
+    '''check the subtrings for adequate divisibility property
+    return True if passes the property'''    
+    substr_list = build_list_of_substrings(number)
+    curr_prime = 2 # the current prime for checking the divisibilty
+        # 2, 3, 5, 7, 11, 13, 17
+    result = True
+    for s in substr_list:
+        x = int(s)
+        while not is_prime(curr_prime):
+            curr_prime += 1
+        print("current prime: ", curr_prime)
+        print(f"{x} % {curr_prime} = {x%curr_prime}")
+        if x%curr_prime == 0:
+            # passes the divisibility property for the current substring
+            curr_prime += 1 
+                # move onto the next prime for the next operation
+            continue
+        else:
+            result = False
+            break
+    return result
+
+def test_check_pan_substrs():
+    '''test that the check_pan_substrs function works'''
+    num_list = [1234567890, 1406357289]
+    for x in num_list:
+        print( check_pandigital_substrs(x), x)
+
+# test_check_pan_substrs()
