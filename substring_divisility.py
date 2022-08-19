@@ -106,22 +106,35 @@ def build_list_of_substrings(number):
 from shared_math import is_prime
 
 def check_pandigital_substrs(number):
-    '''check the subtrings for adequate divisibility property
+    '''given the integer,
+    check the subtrings for adequate divisibility property
     return True if passes the property'''    
     substr_list = build_list_of_substrings(number)
+        # build the substring list
     curr_prime = 2 # the current prime for checking the divisibilty
         # 2, 3, 5, 7, 11, 13, 17
     result = True
+    """
     for s in substr_list:
         x = int(s)
         while not is_prime(curr_prime):
             curr_prime += 1
-        print("current prime: ", curr_prime)
-        print(f"{x} % {curr_prime} = {x%curr_prime}")
+        # print("current prime: ", curr_prime)
+        # print(f"{x} % {curr_prime} = {x%curr_prime}")
         if x%curr_prime == 0:
             # passes the divisibility property for the current substring
             curr_prime += 1 
-                # move onto the next prime for the next operation
+                # move onto the next prime for the next loop
+            continue
+        else:
+            result = False
+            break
+    return result
+    """
+    primes = [2,3,5,7,11,13,17] # the 7 primes
+    prime_to_substr = zip(primes, substr_list)
+    for p,s in prime_to_substr:
+        if int(s) % p == 0:
             continue
         else:
             result = False
@@ -135,3 +148,29 @@ def test_check_pan_substrs():
         print( check_pandigital_substrs(x), x)
 
 # test_check_pan_substrs()
+
+def main():
+    lowest_pan1 = 123456789   # 0123456789
+    lowest_pan2 = 1234567890 #1234567890, move the 0 to front, in case
+        # of misunderstanding prompt
+    lowest_pans = [ lowest_pan1, lowest_pan2]
+    highest_pan = 9876543210 # 9876543210
+    sum = 0 # the sum of all pandigital number 0-9
+    for x in range( lowest_pans[1], highest_pan + 1, 3):
+        # go through the numbers,
+        # can be improved efficiently later
+        if is_pandigital(x):
+            # the number x can be tested for passing pandigital 0-9
+            # substr_list = build_substring_list(x)
+            print(f" {x} is pandigital, sum = {sum}")
+
+            if check_pandigital_substrs(x):
+                sum += x
+                print("sum: ", sum)
+
+    print("sum", sum)
+# given that             1406357289
+# a found pandigtalsubstr 149635728
+main()
+
+# answer: 16695334890
