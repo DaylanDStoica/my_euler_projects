@@ -117,6 +117,14 @@ def main():
     is_99_percent = False 
     while not is_99_percent:
         percentage = count_bouncy / count_total * 100
+        if ( percentage == 50.0): # test case
+            print("percentage: ", percentage)
+            print( "     number at ", count_total)
+            print("             should be at 538")
+        if percentage == 90.0: # test case
+            print("percentage: ", percentage)
+            print( "     number at ", count_total)
+            print("             should be at 21780")
         if percentage == 99.00000 : #the proportion is exactly 99 percent 
             print("percentage: ", percentage)
             break 
