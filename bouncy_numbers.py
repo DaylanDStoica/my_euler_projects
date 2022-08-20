@@ -75,20 +75,56 @@ def test_the_is():
     for x in range(100, 1000):
         if is_increasing(x):
             is_count['incr_count'] += 1
-            print(f" {x:5} is increasing")
+            # print(f" {x:5} is increasing")
             continue 
         elif is_decreasing(x):
             is_count['decr_count'] += 1
-            print(f" {x:5} is decreasing")
+            # print(f" {x:5} is decreasing")
             continue 
         elif is_bouncy(x):
             is_count['bouncy_count'] += 1
-            print(f" {x:5} is bouncy")
+            # print(f" {x:5} is bouncy")
             continue
         # print(f"\n\n\n{x:10} is none of the above\n\n\n\n")
         
     for k, v in is_count.items():
         print(f"{k:8} : {v}")
         
+    return is_count 
+        
         
 # test_the_is()
+
+def get_proportions_for_dict( count_dict):
+    total_counts = 0
+    for v in count_dict.values():
+        total_counts += v 
+        
+    # print ( total_counts) 
+    # return total_counts
+    proportion_dict = { 'incr' : count_dict['incr_count']/ total_counts, 
+                        'decr' : count_dict['decr_count'] / total_counts,
+                        'bouncy' : count_dict['bouncy_count'] / total/counts}
+    
+    return proportion_dict
+    
+# get_proportions( test_the_is())
+
+def main():
+    count_total = 1
+    count_bouncy = 1
+    number = 1
+    is_99_percent = False 
+    while not is_99_percent:
+        percentage = count_bouncy / count_total * 100
+        if percentage == 99.00000 : #the proportion is exactly 99 percent 
+            print("percentage: ", percentage)
+            break 
+        count_total += 1
+        if is_bouncy(count_total):
+            count_bouncy += 1
+            
+    print( "reached 99%")
+    print( "number at ", count_total)
+    
+main()
