@@ -23,13 +23,18 @@ def is_palindrome(num):
     if len(str_num) == 1: #single char 
         return True 
     # for i in range( len(str_num) ):
-    for i in range ( ceil( len(str_num)/2) - 1):
-        if str_num[i] == str_num[-1-i]:
-            return True 
+    if len(str_num) % 2 ==1 : # length is odd
+        for i in range ( ceil( len(str_num)/2) - 1):
+            if str_num[i] == str_num[-1-i]:
+                return True 
+    else:
+        for i in range( ceil(len(str_num)/2) ):
+            if str_num[i] == str_num[-1-i]:
+                return True
     return False
 
 def test_is_palindrome():
     for x in range(3, 500):
         print(f" {x} is palindrome: {is_palindrome(x)}")
         
-# test_is_palindrome()
+test_is_palindrome()
