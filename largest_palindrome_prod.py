@@ -49,7 +49,7 @@ def test_is_palindrome():
             
             print(f" {x} is palindrome: {is_palindrome(x)}")
         
-test_is_palindrome()
+# test_is_palindrome()
 
 def loop_through_3x3():
     '''go through the loops for the product of all products from 2 3-digits numbers'''
@@ -66,4 +66,4 @@ def loop_through_3x3():
     print("highest palindrome ", highest_palindrome)
                     
                     
-# loop_through_3x3()
+loop_through_3x3()
