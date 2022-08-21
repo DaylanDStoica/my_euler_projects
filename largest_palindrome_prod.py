@@ -37,4 +37,21 @@ def test_is_palindrome():
     for x in range(3, 500):
         print(f" {x} is palindrome: {is_palindrome(x)}")
         
-test_is_palindrome()
+# test_is_palindrome()
+
+def loop_through_3x3():
+    '''go through the loops for the product of all products from 2 3-digits numbers'''
+    highest_palindrome = 100*100
+    for a in range(100,1000): # 100-999
+        for b in range(a,1000): # with a, no repeating lower numbers
+            prod = a*b
+            if is_palindrome(prod): # if the product is a palindrome
+                if prod > highest_palindrome: # update the highest palindrome
+                    highest_palindrome = prod
+                    print(f" {a}*{b} = {prod}, is a palindrome")
+            # else: # not a palindrome product
+                # continue
+    print("highest palindrome ", highest_palindrome)
+                    
+                    
+loop_through_3x3()
