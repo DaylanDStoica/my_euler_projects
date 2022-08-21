@@ -23,21 +23,33 @@ def is_palindrome(num):
     if len(str_num) == 1: #single char 
         return True 
     # for i in range( len(str_num) ):
+    result = True 
     if len(str_num) % 2 ==1 : # length is odd
         for i in range ( ceil( len(str_num)/2) - 1):
             if str_num[i] == str_num[-1-i]:
-                return True 
+                # return True
+                continue
+            else:
+                result = False
+                break
     else:
         for i in range( ceil(len(str_num)/2) ):
             if str_num[i] == str_num[-1-i]:
-                return True
-    return False
+                # return True
+                continue
+            else:
+                result = False
+                break
+    # return False
+    return result
 
 def test_is_palindrome():
-    for x in range(3, 500):
-        print(f" {x} is palindrome: {is_palindrome(x)}")
+    for x in range(3, 100000):
+        if is_palindrome(x):
+            
+            print(f" {x} is palindrome: {is_palindrome(x)}")
         
-# test_is_palindrome()
+test_is_palindrome()
 
 def loop_through_3x3():
     '''go through the loops for the product of all products from 2 3-digits numbers'''
@@ -54,4 +66,4 @@ def loop_through_3x3():
     print("highest palindrome ", highest_palindrome)
                     
                     
-loop_through_3x3()
+# loop_through_3x3()
