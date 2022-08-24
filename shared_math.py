@@ -60,6 +60,8 @@ def build_prime_list(number):
                 # while the temp_num is divisible by x
                 temp_num /= x
                 prime_list.append(x) # add the x to list 
+    if is_prime(number):
+        prime_list.append(number)
     return prime_list
 
 def build_prime_dict(number):
