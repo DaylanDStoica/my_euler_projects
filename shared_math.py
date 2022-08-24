@@ -117,3 +117,11 @@ def is_pandigital(n = 10):
             return False
         else:
             held_digits.append(c)
+
+def build_factor_list ( number):
+    '''build and return a list of factors for a given integer'''
+    factor_list = []
+    for x in range(number+1):
+        if number % x == 0:
+            factor_list.append(x)
+    return factor_list 
