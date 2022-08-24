@@ -70,7 +70,7 @@ def build_prime_list(number):
     #     prime_list.append(number)
     return prime_list
 
-print( build_prime_list(23) )
+# print( build_prime_list(23) )
 # build_prime_list(23)
 
 def build_prime_dicbuilt(number):
