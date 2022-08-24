@@ -36,6 +36,9 @@ def is_prime(number):
         return True
     result = True
     for x in range(2, ceil( sqrt(number) )+1):
+    # for x in range(2, ceil( number/2) + 1):
+        if x > number:
+            break
         # print(f" {number}/{x} ")
         if number % x == 0:  # not prime
             # print(f"     {number} is not prime")
@@ -52,19 +55,25 @@ def build_prime_list(number):
     ''' compile list of primes for the number'''
     prime_list = []
     if is_prime(number):
+        prime_list.append(number)
         return prime_list
     temp_num = number
     for x in range(2, ceil(sqrt(number)) +1): 
+    # for x in range(2, ceil( number / 2) + 1):
         if is_prime(x): #if the number is prime
             while temp_num % x == 0: 
                 # while the temp_num is divisible by x
                 temp_num /= x
                 prime_list.append(x) # add the x to list 
-    if is_prime(number):
-        prime_list.append(number)
+    # print("primelist: ", prime_list )
+    # if is_prime(number): # if the starting number is a prime, include in the list
+    #     prime_list.append(number)
     return prime_list
 
-def build_prime_dict(number):
+print( build_prime_list(23) )
+# build_prime_list(23)
+
+def build_prime_dicbuilt(number):
     '''build dictionary of primes for the number'''
     prime_list = build_prime_list(number)
     prime_dict = {}
