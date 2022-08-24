@@ -71,8 +71,11 @@ def make_the_grid():
     # returned_grid = cols
     return returned_grid
 
-def is_pos_too_close_to_top_left ( grid, row_x, col_y, line_len = 4):
-    '''return different values for their proximity to a border''''
+
+# def is_pos_too_close_to_left(grid, col_x):
+
+def is_pos_too_close_to_top_left ( grid, col_x, row_y, line_len = 4):
+    '''return different values for their proximity to a border'''
     x_ret = 0
     y_ret = 0
     # 0 is not too close, 1 is one from too close, 2 is two from too close,
@@ -80,44 +83,63 @@ def is_pos_too_close_to_top_left ( grid, row_x, col_y, line_len = 4):
     # there is 4 too close
     row_count = len(grid) #the number of rows,
     col_count = len(grid[0]) # the number of columns
-    x_ret = row_x - line_len
+    x_ret = col_x - (line_len-1)
     # getting negatives will indicate too close
-    y_ret = col_y - line_len
+    y_ret = row_y - (line_len-1)
     if x_ret >= 0:
         x_ret = 0
     if y_ret >= 0:
         y_ret = 0
     
-    print(f"({row_x}, {row_y}), close to upper_right corner: ({x_ret}, {y_ret})")
+    print(f"({col_x}, {row_y}), close to upper_left corner: ({x_ret}, {y_ret})")
 
     return x_ret , y_ret
 
-def is_pos_too_close_to_bott_right (grid, row_x, col_y, line_len = 4):
+def is_pos_too_close_to_bott_right (grid, col_x, row_y, line_len = 4):
     '''return different values for closeness to lower-right corner'''
     row_count = len(grid)
     col_count = len(grid[0])
 
-    x_ret = col_count - row_x - line_len
+    x_ret = col_count - col_x - line_len
     y_ret = row_count - row_y - line_len
-    
-    print(f"({row_x}, {row_y}), close to lower_right corner: ({x_ret}, {y_ret})")
+
+    if x_ret >= 0:
+        x_ret = 0
+    if y_ret >= 0:
+        y_ret = 0    
+    print(f"({col_x}, {row_y}), close to lower_right corner: ({x_ret}, {y_ret})")
     return x_ret, y_ret
 
+def test_the_too_close_functions():
+    grid = make_the_grid()
+    for y in range(len(grid)):
+        for x in range(len(grid[y])):
+            is_pos_too_close_to_top_left(grid, x, y)
+            is_pos_too_close_to_bott_right(grid, x, y)
+
+test_the_too_close_functions()
 # check the 4 long of each position, return 4-long arrays for each possible extent
-def check_prod_diagonally( grid, row_x, col_y):
+def check_prod_diagonally( grid, col_x, row_y, border_prox_x = 0, border_prox_y = 0):
     '''return the highest product of diagonals, check for both right and left
     likely the most complicated'''
-    pass
-def check_prod_vertically( grid, row_x, col_y):
+    # border proximity for changing the products to be considered, remaining within index boundary
+    left_x, top_y = is_pos_too_close_top_left( grid, col_x, row_y)
+    right_x, bott_y = is_pos_too_close_bott_right( grid, col_x, row_y)
+
+    for i in range(-3,4):
+        for j in range(-3,4):
+            pass
+def check_prod_vertically( grid, col_x, row_y, border_prox_x = 0, border_prox_y = 0):
     '''return the highest product of columns'''
+
     for y in range(-3,3+1): # from 3 in either direction from the position
         #provide if-else cases if too close to a border
-    pass
-def check_prod_horiz( grid, row_x, col_y):
+        pass
+def check_prod_horiz( grid, col_x, row_y, border_prox_x = 0, border_prox_y = 0):
     '''return the highest product of rows'''
     for x in range( -3, 3+1): # from 3 in either direction from the position
         #provide if-else cases if too close to a border
-    pass
+        pass
 
 def check_prod_all ( grid):
     '''use the other check_prod functions, 
@@ -135,4 +157,4 @@ def main():
         print("row_length   ", len(row))
     print("row count: ", len( the_grid) )
 
-main()
+# main()
