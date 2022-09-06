@@ -54,7 +54,7 @@ def is_correct_num_of_dist_prime_factors( number, count_distinct_primes = 4):
     number_of_distinct_primes = count_distinct_primes(number)
     return ( number_of_distinct_primes == count_distinct_primes )
 
-print(is_correct_num_of_dist_prime_factors(6) )
+# print(is_correct_num_of_dist_prime_factors(6) )
 def check_consecutive_numbers(number, count_consecutives = 4, distinct_primes = 4):
     '''look for the first chain of 4 consecutive numbers with 4 prime factors'''
     result = True
