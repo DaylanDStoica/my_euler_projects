@@ -46,13 +46,13 @@ def test_count_distinct():
 
 # test_count_distinct()
 
-def is_correct_num_of_dist_prime_factors( number, count_distinct_primes = 4):
+def is_correct_num_of_dist_prime_factors( number, count_primes = 4):
     '''check if the given number has the correct number of distinct primes'''
-    print("is_correct_num_of_dist_prime_factors (", number, ")")
+    # print("is_correct_num_of_dist_prime_factors (", number, ")")
     # count_distinct_primes(number)
     # if the number of distinct primes is equal to the desired amount, return True
     number_of_distinct_primes = count_distinct_primes(number)
-    return ( number_of_distinct_primes == count_distinct_primes )
+    return ( number_of_distinct_primes == count_primes )
 
 # print(is_correct_num_of_dist_prime_factors(6) )
 def check_consecutive_numbers(number, count_consecutives = 4, distinct_primes = 4):
@@ -71,7 +71,8 @@ def check_consecutive_numbers(number, count_consecutives = 4, distinct_primes = 
 def find_consecutives_start (count_consecutives = 4, distinct_primes = 4):
     '''find the starting number that begins the consecutive postive integers chain'''
     ret_num = 2
-    while not check_consecutive_numbers( count_consecutives, distinct_primes):
+    while not check_consecutive_numbers( ret_num, count_consecutives, distinct_primes):
+        print(ret_num, " was not the start of the chain of distinctprimes. incrementing")
         ret_num += 1
     return ret_num
 
