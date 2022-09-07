@@ -16,3 +16,19 @@ Considering natural numbers of the form, a**b, where a, b < 100,
 what is the maximum digital sum?
 */
 
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int sum_digits ( int number)
+{
+    // get the sum of the digits of the given integer
+    // string str_num = string(number);
+    int summed_digits = 0;
+    while number > 0
+    {
+
+    }
+    return 0;
+}
