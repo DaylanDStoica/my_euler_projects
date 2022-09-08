@@ -34,13 +34,39 @@ int sum_digits ( int number)
         summed_digits += number%10;
         number = number / 10;
         // print(number)
-        cout << number << endl;
+        // cout << number << endl;
     }
     return summed_digits;
 }
 
+int power( int a , int b){
+    // return the value of the input a to the power of input b
+    if ( a == 1 || b == 0){
+        //immediately return 1 if the 1**b or a**0
+        return 1;
+    }
+    int result = 1;
+    for ( int i = 0; i < b ; i++){
+        result *= a;
+    }
+    return result;
+}
+
+int power_sum ( int a , int b){
+    //return the sum of the digits of the result of the exponent a**b
+    int power_val = power(a, b);
+    int sum = sum_digits(power_val);
+    return sum;
+}
 int main(){
-    int ret = sum_digits(123456789);
-    cout << "sum of digits " << ret;
+    //int ret = sum_digits(123456789);
+    //cout << "sum of digits " << ret;
+
+    for ( int i = 0 ; i < 14 ; i++){
+        for (int j = 0; j < 20; j++){
+            cout << i << "**" << j << " = " << power(i,j);
+            cout << "  sum_digits: " << power_sum(i,j) << endl;
+        }
+    }
     return 0;
 }
