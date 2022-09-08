@@ -26,9 +26,21 @@ int sum_digits ( int number)
     // get the sum of the digits of the given integer
     // string str_num = string(number);
     int summed_digits = 0;
-    while number > 0
+    while (number > 0)
     {
-
+        // modulus the number by 10, getting the 1's position to add to return
+        // then, divide the given number to move the next digit down
+        // stop once there are no more digits
+        summed_digits += number%10;
+        number = number / 10;
+        // print(number)
+        cout << number << endl;
     }
+    return summed_digits;
+}
+
+int main(){
+    int ret = sum_digits(123456789);
+    cout << "sum of digits " << ret;
     return 0;
 }
