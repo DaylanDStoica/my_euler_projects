@@ -52,21 +52,42 @@ int power( int a , int b){
     return result;
 }
 
-int power_sum ( int a , int b){
+int power_sum_digits ( int a , int b){
     //return the sum of the digits of the result of the exponent a**b
     int power_val = power(a, b);
     int sum = sum_digits(power_val);
     return sum;
 }
+
+int find_highest_powerDigitSum ( int highest_base = 100, int highest_exp = 100){
+    int highest_digit_sum = 1;
+    for ( int a = 1 ; a <= highest_base ; a++){
+        for ( int b = 1 ; b <= highest_exp ; b++){
+            int curr_sum_digits = power_sum_digits(a,b);
+            if ( curr_sum_digits > highest_digit_sum){
+                highest_digit_sum = curr_sum_digits;
+            }
+        }
+    }
+    return highest_digit_sum;
+}
 int main(){
     //int ret = sum_digits(123456789);
     //cout << "sum of digits " << ret;
 
+    /*
     for ( int i = 0 ; i < 14 ; i++){
         for (int j = 0; j < 20; j++){
             cout << i << "**" << j << " = " << power(i,j);
-            cout << "  sum_digits: " << power_sum(i,j) << endl;
+            cout << "  sum_digits: " << power_sum_digits(i,j) << endl;
         }
     }
+    */
+    
+    int a = 100, b = 100;
+    int max_power_digit_sum = find_highest_powerDigitSum(a,b);
+    cout << " highest digit sum from powers " << a << " and " << b ;
+    cout << endl << "   " << max_power_digit_sum << endl;
+    // result = 74, incorrect
     return 0;
 }
