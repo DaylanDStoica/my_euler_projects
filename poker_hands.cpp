@@ -61,3 +61,34 @@ The file, poker.txt, contains one-thousand random hands dealt to two players. Ea
 
 How many hands does Player 1 win?
 */
+
+// poker.txt
+
+#include <iostream>
+#include <fstream>
+// #include <ifstream>
+// read from the file 
+
+using namespace std;
+
+/*
+void open_file(){
+    open( "poker.txt", ios:in) //read from the file 
+}
+*/
+
+char* read_the_hands(){
+    //from the five cards from each line, compile the hands 
+
+}
+
+int main(){
+    ifstream myfile ("poker.txt");
+    if ( myfile.is_open() ){
+        //file is successfully opened and reading from
+    }
+    else{
+        //could not locate the file
+        return -1;
+    }
+}

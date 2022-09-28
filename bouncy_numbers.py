@@ -104,7 +104,7 @@ def get_proportions_for_dict( count_dict):
     # return total_counts
     proportion_dict = { 'incr' : count_dict['incr_count']/ total_counts, 
                         'decr' : count_dict['decr_count'] / total_counts,
-                        'bouncy' : count_dict['bouncy_count'] / total/counts}
+                        'bouncy' : count_dict['bouncy_count'] / total_counts}
     
     return proportion_dict
     

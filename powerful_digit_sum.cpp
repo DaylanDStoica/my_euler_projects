@@ -61,11 +61,15 @@ int power_sum_digits ( int a , int b){
 
 int find_highest_powerDigitSum ( int highest_base = 100, int highest_exp = 100){
     int highest_digit_sum = 1;
-    for ( int a = 1 ; a <= highest_base ; a++){
-        for ( int b = 1 ; b <= highest_exp ; b++){
+    for ( int a = 1 ; a < highest_base ; a++){
+        for ( int b = 1 ; b < highest_exp ; b++){
             int curr_sum_digits = power_sum_digits(a,b);
             if ( curr_sum_digits > highest_digit_sum){
                 highest_digit_sum = curr_sum_digits;
+                cout << "new highest digit_sum: " << highest_digit_sum;
+                cout << " = " << a << "**" << b ;
+                cout << " power = " << power(a,b);
+                cout << endl;
             }
         }
     }

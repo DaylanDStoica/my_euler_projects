@@ -78,6 +78,7 @@ int main(){
     double num2 = 1;
     int index = 1;
     while ( to_string(num2).length() <= 999){
+    // while ( num2 < 10**1000){
         // fib_sequence( &num1, &num2, &index);
         fib_sequence(num1, num2, index);
         cout << "number length " << to_string(num2).length();
