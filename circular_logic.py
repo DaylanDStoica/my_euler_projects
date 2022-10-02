@@ -24,7 +24,26 @@ x 	y 	x XOR y
 1	1	   0
 
 How many 6-input binary truth tables, τ, satisfy the formula
-τ(a, b, c, d, e, f) AND τ(b, c, d, e, f, a XOR (b AND c)) = 0
+τ(a, b, c, d, e, f) AND 
+τ(b, c, d, e, f, a XOR (b AND c)) 
+    = 0
 
 for all 6-bit inputs (a, b, c, d, e, f)?
 '''
+
+'''
+PLAN:
+compile the two tables separately, then run through the different possible states for each
+and join them at the greater table level 
+    T1 AND T2
+        T1 = (a,b,c,d,e,f)
+        T2 = (b,c,d,e,f,  a XOR ( b AND C)  )
+'''
+class Truth_Table:
+    def __init(self):
+        pass 
+    
+    def build_the_table(self):
+        '''with the given string of boolean statements for the instance
+        create a table of different True/False conditions'''
+        pass
