@@ -40,10 +40,22 @@ and join them at the greater table level
         T2 = (b,c,d,e,f,  a XOR ( b AND C)  )
 '''
 class Truth_Table:
-    def __init(self):
-        pass 
+    def __init__(self, table_length=6):
+        # self.table_array = [0,1]*table_length
+        # self.table_array = [[0,1]]*table_length
+        self.table_array = [[False, True]] * table_length
     
     def build_the_table(self):
         '''with the given string of boolean statements for the instance
         create a table of different True/False conditions'''
         pass
+    
+    
+def test():
+    # table1 = [[0,1]]*6
+    table1 = Truth_Table(6)
+
+    print(table1.table_array)
+    # print(table1)
+    
+test()
