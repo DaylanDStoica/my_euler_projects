@@ -32,7 +32,8 @@ def string_permuations( num):
 def check_rotation_prime(number):
     circled_list = string_permuations(number)
     # go through the list of questioned integer ordering
-    # checking for prime
+    # checking for prime, then checking that the when the order is changed, 
+    # is still a prime
     result = True 
     for num1 in circled_list:
         if is_prime( int(num1) ):
