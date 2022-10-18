@@ -27,6 +27,10 @@ def string_permuations( num):
     str_num = str(num)
     perm_list = [ str_num]
 
+    # cycle through what the different permutations can be
+    # startint with moving around the first index, and what can changed in the forward indices
+    # and move forward from there.
+    
     return perm_list
     
 def check_rotation_prime(number):
