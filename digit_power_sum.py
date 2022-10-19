@@ -44,3 +44,28 @@ def sum_the_digits( number):
     sum = 0
     for x in digit_array:
         sum += x
+    return sum
+
+def check_digitsum_power ( number):
+    ''' check if the sum of digits from number, when given any exponent, 
+    returns the starting number
+
+    number == digit_sum(number)**(power)
+    '''
+    result = False
+    digit_sum = sum_the_digits(number)
+    for power in range(1, 10):
+        if number == digit_sum**power:
+            result = True 
+            break 
+        # found the next value goal
+        else:
+            continue
+
+    return result, number, digit_sum, power
+
+def main():
+    for count in range(0,30):
+        # count the number of passing values that have been found 
+        pass
+    
