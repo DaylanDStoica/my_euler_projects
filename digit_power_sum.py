@@ -37,3 +37,10 @@ def test1():
         print(x, "   ", separate_the_digits(x))
 
 tests()
+
+def sum_the_digits( number):
+    '''take the digits from the integer, and return the sum of the digits'''
+    digit_array = separate_the_digits(number)
+    sum = 0
+    for x in digit_array:
+        sum += x
