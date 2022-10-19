@@ -17,3 +17,23 @@ You are given that a2 = 512 and a10 = 614656.
 
 Find a30.
 '''
+
+def separate_the_digits ( number):
+    '''separate the digits of number <integer> into an array, and return the array'''
+    # int_num = int(num)
+    int_num = number 
+    digits_array = []
+    while  int_num > 0:
+        digits_array.insert(0, int_num%10)
+        int_num = int_num // 10
+    # print(digits_array)
+    return digits_array
+
+def tests():
+    test1()
+
+def test1():
+    for x in range( 1000):
+        print(x, "   ", separate_the_digits(x))
+
+tests()
