@@ -29,6 +29,7 @@ def is_palindrome( number):
             continue
         else:
             result = False 
+            break
 
     return result 
 
@@ -63,6 +64,20 @@ def test_check_palindromes():
         
 
 
-test_check_palindromes()
+# test_check_palindromes()
 
 
+def base_case():
+    '''
+    Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2.
+    '''
+    sum = 0
+    for x in range(1, 1000000):
+        if check_both_palindromes(x):
+            print( '    ', x, format(x,'b'))
+            sum += x 
+
+    print( "sum of palindromes: ", sum)
+    return sum
+
+base_case()
