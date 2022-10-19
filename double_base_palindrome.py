@@ -2,7 +2,7 @@
 # Daylan Stoica  
 # @DaylanDStoica
 
-# 18 October 2022
+# 19 October 2022
 '''
 Double-base palindromes
 Problem 36
