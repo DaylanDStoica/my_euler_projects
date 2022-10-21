@@ -18,6 +18,9 @@ You are given that a2 = 512 and a10 = 614656.
 Find a30.
 '''
 
+from distutils.command import check
+
+
 def separate_the_digits ( number):
     '''separate the digits of number <integer> into an array, and return the array'''
     # int_num = int(num)
@@ -36,7 +39,7 @@ def test1():
     for x in range( 1000):
         print(x, "   ", separate_the_digits(x))
 
-tests()
+# tests()
 
 def sum_the_digits( number):
     '''take the digits from the integer, and return the sum of the digits'''
@@ -57,15 +60,37 @@ def check_digitsum_power ( number):
     for power in range(1, 10):
         if number == digit_sum**power:
             result = True 
+            print( number, "passes the digitsum_power")
             break 
         # found the next value goal
         else:
             continue
 
-    return result, number, digit_sum, power
+    # return result, number, digit_sum, power
+    return result 
+
+
+# def check_digitsum_power ( number):
 
 def main():
-    for count in range(0,30):
+    num = 1
+    count = 0
+    # for count in range(0,30):
         # count the number of passing values that have been found 
-        pass
-    
+        # while not check_digitsum_power(x):
+    passing_array = [] # the array contiaining the numbers that pass
+    while count < 30:
+        # count the number of passing values that have been found
+        if check_digitsum_power(num):
+            count += 1
+            passing_array.append(num)
+            print(num, " added to the array")
+            print(passing_array)
+        num += 1
+
+    print(num)
+    return num , passing_array
+
+
+main()
+
