@@ -55,6 +55,12 @@ def divide_amoeba ( parent_amoeba : Amoeba):
     
     return amoeba1, amoeba2
 
+def divide_amoeba_outer ( parent_amoeba : Amoeba):
+    # to handle the outer transition from one to two amoebas
+    parent_amoeba, amoeba2 = divide_amoeba( parent_amoeba)
+        #replace the parent amoeba with one of the children's values
+    return parent_amoeba, amoeba2
+
 def test_amoeba_class (starting_x = 0, starting_y = 0):
     parent_amoeba = Amoeba( starting_x, starting_y )
     print( " paraent coords: ( %d, %d )" %(parent_amoeba.pos_x, parent_amoeba.pos_y) )
