@@ -28,3 +28,13 @@ and the last nine digits of C(100) are 125923036.
 
 Find C(100 000), enter the last nine digits as your answer.
 '''
+
+'''
+notes:
+after each division, the original amoeba is deleted, and two new amoebas appear 
+at the new spots, if the spots are already empty
+    two calculations to determine the location of two new amoebas
+
+question: if the spaces are already filled, is the division not possible, 
+    if yes, then the parent amoeba just disappears'''
+
