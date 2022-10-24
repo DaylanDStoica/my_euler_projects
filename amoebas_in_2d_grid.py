@@ -50,7 +50,7 @@ def divide_amoeba ( parent_amoeba : Amoeba):
     parent_x = parent_amoeba.pos_x 
     parent_y = parent_amoeba.pos_y 
     
-    amoeba1 = Amoeba ( parent_x + 1, parent_y)
+    amoeba1 = Amoeba( parent_x + 1, parent_y)
     amoeba2 = Amoeba( parent_x + 1, ( parent_y + 1 ) % 4)
     
     return amoeba1, amoeba2
@@ -73,4 +73,18 @@ def loop_test_amoeba_class ():
         for y in range( 23):
             test_amoeba_class( x, y)
             
-loop_test_amoeba_class()
+# loop_test_amoeba_class()
+
+def handle_tracking_filled ( grid ,parent_amoeba : Amoeba):
+    # take in a parent_amoeba, and the grid that tracks where is occupied 
+    parent_x = parent_amoeba.pos_x 
+    parent_y = parent_amoeba.pos_y 
+    amoeba1, amoeba2 = divide_amoeba( parent_amoeba)
+    grid[parent_x][parent_y] = '_'  # parent's coord is now empty 
+    grid[amoeba1.pos_x][amoeba1.pos_y] = '*' #now filled
+    grid[amoeba2.pos_y][amoeba2.pos_y] = '*' #now filled
+    
+    
+def build_grid():
+    grid = []*[]
+    return grid
