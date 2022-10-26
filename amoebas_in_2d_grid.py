@@ -38,6 +38,9 @@ at the new spots, if the spots are already empty
 question: if the spaces are already filled, is the division not possible, 
     if yes, then the parent amoeba just disappears'''
 
+from multiprocessing.spawn import old_main_modules
+
+
 class Amoeba:
     def __init__ ( self, pos_x = 0, pos_y = 0):
         self.pos_x = pos_x 
@@ -86,5 +89,29 @@ def handle_tracking_filled ( grid ,parent_amoeba : Amoeba):
     
     
 def build_grid():
-    grid = []*[]
+    grid = [ [] ]
     return grid
+
+def trigger_all_divisions( grid, amoeba_list):
+    ''' go through the list of amoebas and trigger their division, and update the grid appropriately'''
+    print("Starting grid: ")
+    old_grid = grid 
+    print(old_grid)
+    old_amoeba_list = amoeba_list # a temp variable, used for keeping for-loop stable
+        # not going through constantly shifting contents
+        # also true for the grid - old_grid
+    for curr_amoeba in old_amoeba_list:
+        handle_tracking_filled(grid, curr_amoeba)
+        print("     new grid:")
+        print(grid)
+    print("final grid: ")
+    print(grid)
+    
+def test_mass_division ():
+    starting_amoeba = Amoeba()
+    grid = build_grid() 
+    amoeba_list = [starting_amoeba]
+    for i in range(10):
+        trigger_all_divisions(grid, amoeba_list)
+        
+test_mass_division()
