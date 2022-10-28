@@ -40,7 +40,7 @@ question: if the spaces are already filled, is the division not possible,
 
 from multiprocessing.spawn import old_main_modules
 
-
+"""
 class Amoeba:
     def __init__ ( self, pos_x = 0, pos_y = 0):
         self.pos_x = pos_x 
@@ -115,3 +115,11 @@ def test_mass_division ():
         trigger_all_divisions(grid, amoeba_list)
         
 test_mass_division()
+"""
+
+# rework the functions, to work with a list of coords (x,y)
+# drop the idea of an Amoeba class 
+
+def base_amoeba_grid():
+    return [(0,0)]
+    
