@@ -120,6 +120,46 @@ test_mass_division()
 # rework the functions, to work with a list of coords (x,y)
 # drop the idea of an Amoeba class 
 
+# using a list of 2D coords (x,y) to record where is filled and 
+# divided to
 def base_amoeba_grid():
-    return [(0,0)]
+    # build the base of the grid, with the starting amoeba's coordinates
+    # return [(0,0)]
+    return [ [0,0] ]
+
+def divide_amoeba( amoeba_pos):
+    '''
+    An amoeba in square-cell (x,y) can divide itself into two amoebas 
+    to occupy the squares (x+1, y) and (x+1, (y+1) mod 4), 
+    '''
+    # amoeba_pos will contain the two parts of coords 
+    amoeba_x = amoeba_pos[0] + 1 #the new amoebas share the new pos_x
+    amoeba_y1 = amoeba_pos[1] 
+    amoeba_y2 = ( amoeba_pos[1] + 1) % 4   
+
+    # return [( amoeba_x, amoeba_y1), ( amoeba_x, amoeba_y2)]
+    # return as a list of lists, to be split outside
+    return [ [amoeba_x, amoeba_y1], [amoeba_x, amoeba_y2]]
+
+def print_grid_test():
+    grid = base_amoeba_grid()
+    print("starting grid", grid)
+    temp_grid = grid
+    #use temporary grid for not using dynamic list within the loop
     
+    for amoeba in temp_grid:
+        # print("amoeba type: ",type(amoeba))
+        # print("grid type:", type(grid))
+        print("current amoeba: ", amoeba)
+        temp_amoeba = amoeba 
+        # grid.pop(amoeba)
+        new_amoebas = divide_amoeba(temp_amoeba)
+        grid.remove(amoeba) # remove the parent amoeba, now divided
+
+        grid.append(new_amoebas[0])
+        grid.append( new_amoebas[1])
+        #add the new coords to the grid
+    print("final grid", grid)
+
+
+print_grid_test()
