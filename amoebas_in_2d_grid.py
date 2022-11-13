@@ -9,7 +9,7 @@ Amoebas in a 2D grid
 Problem 762
 
 Consider a two dimensional grid of squares. The grid has 4 rows but infinitely many columns.
-
+coordinates that repressent the fill
 An amoeba in square-cell (x,y) can divide itself into two amoebas 
 to occupy the squares (x+1, y) and (x+1, (y+1) mod 4), 
 provided these squares are empty.
@@ -23,7 +23,7 @@ An arrangement may be reached in several different ways but it is only counted o
 Let C(N) be the number of different possible arrangements after N divisions.
 
 For example,
-C(2) = 2,   C(10) = 1301,  C(20) = 5895236,
+C(2) = 2,   C(10) = 1301,  C(20) = 5895236TODO: rework t to work with a list of ,
 and the last nine digits of C(100) are 125923036.
 
 Find C(100 000), enter the last nine digits as your answer.
@@ -38,9 +38,11 @@ at the new spots, if the spots are already empty
 question: if the spaces are already filled, is the division not possible, 
     if yes, then the parent amoeba just disappears'''
 
-from multiprocessing.spawn import old_main_modules
 
 """
+from multiprocessing.spawn import old_main_modules
+
+
 class Amoeba:
     def __init__ ( self, pos_x = 0, pos_y = 0):
         self.pos_x = pos_x 
@@ -117,6 +119,8 @@ def test_mass_division ():
 test_mass_division()
 """
 
+"""
+
 # rework the functions, to work with a list of coords (x,y)
 # drop the idea of an Amoeba class 
 
@@ -163,3 +167,30 @@ def print_grid_test():
 
 
 print_grid_test()
+
+"""
+
+'''attempt number 3: one single 1-D list, not a 2-D array of coords, 
+but a single row of coordinates
+each element will include two elements, representing the two coordinates
+that will be used to calculate the locations of the new amoebas after division
+amoeba[0] will be the x-coordinate, amoeba[1] will be the y-coordinate'''
+
+def build_grid():
+    '''build a 'grid', represented by nested list'''
+    grid = [ [0,0] ]
+    return grid 
+
+def divide_amoeba (grid, parent_amoeba):
+    '''given the coordinates of a parent_amoeba, get the coordinates of its children
+    and add them to the grid, while removing the parent from the list'''
+    par_x = parent_amoeba[0]
+    par_y = parent_amoeba[1]
+    
+    amoeba1 = [par_x + 1, par_y]
+    amoeba2 = [ par_x  + 1, ( par_y + 1) % 4]
+    
+    grid.append(amoeba1)
+    grid.append( amoeba2)
+    grid.remove(parent_amoeba)
+    
