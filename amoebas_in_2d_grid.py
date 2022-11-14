@@ -194,3 +194,33 @@ def divide_amoeba (grid, parent_amoeba):
     grid.append( amoeba2)
     grid.remove(parent_amoeba)
     
+    
+import copy 
+def split_all_amoebas( grid):
+    '''create a copy of the grid, to loop through and perform the divisions separately, then at end, convert 
+    original grid to divided_grid'''
+    modded_grid = grid.copy() 
+    print(" beginning to split all amoeabas in the list")
+    print("         original grid: ")
+    print(grid)
+    for parent_amoeba in grid:
+        print("splitting amoeba: ", parent_amoeba)
+        divide_amoeba(modded_grid, parent_amoeba)
+        # intention: to update the grid within the function, 
+    grid = modded_grid
+    print("         new grid: ")
+    print(grid)
+    return grid 
+    
+    
+def main():
+    grid = build_grid()
+    for x in range(4):
+        print("split division ", x)
+        grid = split_all_amoebas(grid)
+        
+        
+    print("     final grid")
+    print(grid)
+    
+main()
