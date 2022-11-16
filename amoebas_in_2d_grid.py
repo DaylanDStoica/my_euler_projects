@@ -23,7 +23,8 @@ An arrangement may be reached in several different ways but it is only counted o
 Let C(N) be the number of different possible arrangements after N divisions.
 
 For example,
-C(2) = 2,   C(10) = 1301,  C(20) = 5895236TODO: rework t to work with a list of ,
+C(2) = 2,   C(10) = 1301,  C(20) = 5895236
+TODO: rework t to work with a list of ,
 and the last nine digits of C(100) are 125923036.
 
 Find C(100 000), enter the last nine digits as your answer.
@@ -194,6 +195,26 @@ def divide_amoeba (grid, parent_amoeba):
     grid.append( amoeba2)
     grid.remove(parent_amoeba)
     
+def check_for_obstructions( grid, parent_amoeba):
+    '''check that the parent_amoeba's children will not divide into an occupied spot
+    return True if able to divide without obstruction
+    return False if one of the division space's is filled'''
+    par_x = parent_amoeba[0]
+    par_y = parent_amoeba[1]
+    
+    amoeba1 = [par_x + 1, par_y]
+    amoeba2 = [ par_x  + 1, ( par_y + 1) % 4]
+    
+    # if ( amoeba1 in grid) or ( amoeba2 in grid):
+    if amoeba1 in grid:
+        print( "        ", amoeba1 , " already exists in the grid, skipping this division")
+        return False 
+    elif amoeba2 in grid: 
+        print( "        ", amoeba2 , " already exists in the grid, skipping this division")
+        return False 
+    else:
+        
+        return True 
     
 import copy 
 def split_all_amoebas( grid):
@@ -203,24 +224,43 @@ def split_all_amoebas( grid):
     print(" beginning to split all amoeabas in the list")
     print("         original grid: ")
     print(grid)
+    # sleep(3)
     for parent_amoeba in grid:
-        print("splitting amoeba: ", parent_amoeba)
-        divide_amoeba(modded_grid, parent_amoeba)
-        # intention: to update the grid within the function, 
+        # if check_for_obstructions( grid, parent_amoeba):
+        if check_for_obstructions( modded_grid, parent_amoeba):
+            print("splitting amoeba: ", parent_amoeba)
+            divide_amoeba(modded_grid, parent_amoeba)
+            # intention: to update the grid within the function, 
+        else:
+            continue
     grid = modded_grid
     print("         new grid: ")
     print(grid)
     return grid 
     
-    
-def main():
+from time import sleep
+def develop_system( num_of_divisions):
+    '''produce the system, then the number of division cycles across it'''
     grid = build_grid()
-    for x in range(4):
+    for x in range( num_of_divisions):
         print("split division ", x)
         grid = split_all_amoebas(grid)
         
+        # sleep( 0.5)
         
     print("     final grid")
     print(grid)
+    return grid 
+    
+def count_the_cells ( grid):
+    '''given the list of coordinates, count the number of arrangements'''
+    return len( grid)
+    
+def main():
+    division_cycles = 1000
+    grid = develop_system( division_cycles )
+    counted_cells = count_the_cells(grid)
+    print( "number of cells:  ", count_the_cells)
+    
     
 main()
