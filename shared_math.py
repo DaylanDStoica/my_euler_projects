@@ -1,7 +1,7 @@
 
 # Daylan Stoica
 # @DaylanDStoica
-# 14 August 2022
+# 15 November 2022
 #
 
 # math functions for various computations
@@ -136,3 +136,15 @@ def build_factor_list ( number):
         if number % x == 0:
             factor_list.append(x)
     return factor_list 
+
+import copy
+def sum_digits ( number):
+    '''retun the sum of the digits of the given number
+    assumes number is a positive integer '''
+    digit_sum = 0
+    # x = number.copy()
+    x = number 
+    while x > 0:
+        digit_sum += x%10
+        x = x // 10
+    return digit_sum
