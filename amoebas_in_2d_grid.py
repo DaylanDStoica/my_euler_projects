@@ -260,7 +260,7 @@ def main():
     division_cycles = 1000
     grid = develop_system( division_cycles )
     counted_cells = count_the_cells(grid)
-    print( "number of cells:  ", count_the_cells)
+    print( "number of cells:  ", count_the_cells(grid))
     
     
 main()
