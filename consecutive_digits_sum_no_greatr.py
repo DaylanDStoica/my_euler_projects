@@ -34,11 +34,28 @@ def find_largest_sum_of_digits ( number):
 def check_for_largest_sum_exceed_number ( number, exceeds_num = 9):
     '''check that if the given number's sum-digits, does not exceed the given exceeds_number
     
-    return True if not greater than'''
-    if find_largest_sum_of_digits(number) > 9:
+    return True if not greater than exceeds_num parameter
+    return False otherwise'''
+    if find_largest_sum_of_digits(number) > exceeds_num:
         return False 
     else:
         return True 
+
+def check_for_largest_sum_exceed_number2 ( number, exceeds_num = 9):
+    '''second version of the limit consecutive digits sum code block 
+    immediately return False if 3-consecutive digits sum exceed the given number
+    '''
+    result = True # change return result, if any of the digits-sums exceeds the given number
+    while number > 0:
+        last_3_digits = number % 1000 
+        sum_of_last_3 = sum_digits(last_3_digits) 
+        if sum_of_last_3 > exceeds_num:
+            result = False 
+            break 
+        else:
+            pass
+        number = number // 10
+    return result 
     
 def main():
     starting_number = 10**20 # 20 digit numbers 
@@ -46,12 +63,14 @@ def main():
     
     current_number = starting_number 
     count_not_exceeds = 0 # count the number of not exceeding the given number 
-    given_exceed_number = 9
+    given_exceed_number = 9 # the given number that sums cannot exceed
     while current_number < ending_number:
         # once the current_number reaches 21-digits, stop 
-        if check_for_largest_sum_exceed_number ( current_number, given_exceed_number):
+        # if check_for_largest_sum_exceed_number ( current_number, given_exceed_number):
+        if check_for_largest_sum_exceed_number2 ( current_number, given_exceed_number):
             print( "   ", current_number, " has no 3-consecutive digits that, when summed, do not exceed ", given_exceed_number)
             count_not_exceeds += 1
+            print("current count: ", count_not_exceeds)
         else:
             pass 
         current_number += 1
