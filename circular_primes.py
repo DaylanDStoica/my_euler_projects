@@ -22,29 +22,37 @@ How many circular primes are there below one million?
 from shared_math import is_prime 
 
 import itertools #for getting the permutations
-def string_permuations( num):
+def string_permutations( num):
     '''create the different permutations of a string's characters
     return list of the different ways the chars can be ordered'''
     str_num = str(num)
-    perm_list = [ str_num]
+    # perm_list = [ str_num]
 
     # cycle through what the different permutations can be
     # startint with moving around the first index, and what can changed in the forward indices
     # and move forward from there.
     # digit_list = str_num.break()
     # digit_list = split( str_num)
-    digit_list = list(str_num)
     
-    per_list = itertools.permutations( digit_list, len(digit_list) )
+    # digit_list = list(str_num)
+    
+    # perm_list = itertools.permutations( digit_list, len(digit_list) )
+    perm_list = itertools.permutations(str_num)
     #get all the permutations, that are of the length of the original number
     #AKA, rearrange the numbers, without dropping or replicating any digits
     
     # TODO: test the function, with the perm_list, and using iterations package.
-    
+    # print(digit_list)
+    print(str_num)
+    # print(perm_list)
+    for p in perm_list:
+        print(p)
     return perm_list
     
+string_permutations(123)
+
 def check_rotation_prime(number):
-    circled_list = string_permuations(number)
+    circled_list = string_permutations(number)
     # go through the list of questioned integer ordering
     # checking for prime, then checking that the when the order is changed, 
     # is still a prime
