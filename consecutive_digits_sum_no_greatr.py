@@ -44,6 +44,9 @@ def check_for_largest_sum_exceed_number ( number, exceeds_num = 9):
 def check_for_largest_sum_exceed_number2 ( number, exceeds_num = 9):
     '''second version of the limit consecutive digits sum code block 
     immediately return False if 3-consecutive digits sum exceed the given number
+    
+    return False if there exists a 3-digit-sum that exceeds the given number 
+    return True if there does not exist such a digit-set
     '''
     result = True # change return result, if any of the digits-sums exceeds the given number
     while number > 0:
@@ -56,8 +59,10 @@ def check_for_largest_sum_exceed_number2 ( number, exceeds_num = 9):
             pass
         number = number // 10
     return result 
+
     
-def main():
+# def main():
+def loop_and_count_digitsets():
     starting_number = 10**20 # 20 digit numbers 
     ending_number = 10**21 # 21 digit number, do not go past 
     
@@ -76,4 +81,80 @@ def main():
         current_number += 1
         
         
+# main()
+
+    
+def find_largest_set_of_digits ( number, exceeds_num = 9, digit_count = 20):
+    ''' find the set of digits that exceed the number, and immediately increment that number
+    1000001450033, take 100000145 to 100000146, then bring back to 20 digits. => 1000001460000
+    return that higher number
+    
+    reason: if an unacceptable digit-set is in the millions, then millions of increment operations
+    on the original test-number will be performed, before being able to find the next available
+    purpose: speed up the that operations loop, by clearing the number of leading numbers before the digit-set
+    incrementing the resulting base, and filling back up the leading zeros
+    '''
+    min_number = 10**digit_count # the number that the returned number must be greater than 
+    if check_for_largest_sum_exceed_number2 ( number, exceeds_num):
+        # the number has a digit-set that exceeds the number 
+        # reduce, find the highest set of 3-digits, then return the fixed number 
+        # while number > 0:
+        #     last_3_digits = number % 1000 
+        #     sum_of_last_3 = sum_digits(last_3_digits) 
+        #     if sum_of_last_3 > exceeds_num:
+        #         result = False 
+        #         break 
+        #     else:
+        #         pass
+        #     number = number // 10
+        while number > 0:
+            # loop degrading the number, until you get to the lowest set of number-exceeding digits
+            last_3_digits = number % 1000 
+            if sum_digits(last_3_digits) > exceeds_num:
+                break
+            number = number // 10
+        # number += 1 # increasing the lowest number of the digits by one
+        while number < min_number:
+            # loop increasing the number, until it has 20 digits again
+            number *= 10
+        number += 1 # increasing the lowest number of the digits by one
+
+    else:
+        # return number
+        # do nothing to the number if there are no invalid digit-sets for counting, 
+        # simply return the original number
+        pass 
+    return number 
+
+def loop_and_count_digitsets2( lower_digits = 20, upper_digits = 21, exceeds_num = 9):
+    '''same as before, but with the find_largest_set_of_digits implented for faster counting'''
+    starting_number = 10**lower_digits # start at 20-digit numbers 
+    ending_number = 10**upper_digits # end at 21-digit numbers
+    
+    current_number = starting_number
+    count_digitsets = 0 # counter variable
+    while current_number < ending_number:
+        # as long as the current_number has less than 21-digits
+        pass 
+        # TODO: develop way to check if the number, after skipping over the invalid upper digit-sets, 
+        # to check if the new number is not also invalid
+        print( "current_number, before digit skip: ", current_number)
+        current_number = find_largest_set_of_digits( current_number, exceeds_num)
+        print( " current number, after digit skip: ", current_number)
+        
+        # conditionally incremnt the counter
+        if check_for_largest_sum_exceed_number2( current_number, exceeds_num):
+            print( "current number is valid, incrementing counter: ")
+            count_digitsets += 1
+            print("     count_digitsets = ", count_digitsets)
+        current_number += 1 #increment the current number, after skipping the invalid chunks
+    return count_digitsets
+
+def main():
+    print("beginning the loopfunction")
+    digitsets_count = loop_and_count_digitsets2()
+    completion_message = " the total number of 20-digit positive integers, with sums of 3 consecutive digits is: "
+    print( completion_message, digitsets_count)
+    
+    
 main()
