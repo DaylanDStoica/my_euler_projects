@@ -63,6 +63,8 @@ def check_rotation_prime(number):
         # p1.append(p)
         # p1.append( " ")
         # print(p) # ('1',)
+        # p = map(list( "".join, p))
+        p = ''.join(p)
         p1 += p 
         p1 += " "
         # TODO: join the sub-tuples into integers
@@ -101,10 +103,22 @@ def main():
     upper_limit = 10**6 # 1 million 1,000,000
 
     count_circ_primes = 0
-    for x in range(1, upper_limit): # up to less than 1 million
-        if check_rotation_prime(x):
+    count_circ_primes += 1 # 2 is prime 
+    count_circ_primes += 1 # 3 is prime 
+    lower_limit = 5 # 5 is the lowest odd that will be checked
+    for x in range(lower_limit, upper_limit, 2): # up to less than 1 million
+        # starting at an odd integer, increment at a rate of 2, 
+        # only checking odds for prime
+        if not is_prime(x):
+            # if the starting number is not prime, immediately skip 
+            print( x , " is not prime. Skip!")
+            continue
+        elif check_rotation_prime(x):
+            # check the starting number and all its digit perumtations
             count_circ_primes += 1
             print( x , " is a circular prime")
+        else:
+            print('not circular')
     print( count_circ_primes, " is the count of circular primes")
 
 main()
