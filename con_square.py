@@ -87,10 +87,10 @@ def main():
         # because of the proof that valids can only be of double-zero endings, can increment the loop in 10's
         # pass
         if square_is_valid(x):
-            print("found the square-base:           ", x)
+            print("found the square-base:           ", x) # 1389019170
             break # upon finding the desired base, exit
         else:
-            print( x, " is not the valid square-base")
+            print( x, " is not the valid square-base") 
             
             
 main()
