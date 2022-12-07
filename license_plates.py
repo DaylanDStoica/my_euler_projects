@@ -35,10 +35,40 @@ def is_winner ( seen_plates):
             lower_set.append(x)
         elif x == 500: 
             median.append(x)
-            if median.length() >= 2: # if there are more than 2 500's, 
+            # if median.len() >= 2: # if there are more than one value of 500, 
+            if len(median) >= 2:
                 # 500*2 = 1000, winner 
                 return True 
             
+    # loop through the two sets, if the sum equals 1000, return True 
+    # no two values over 501 can add up to 1000
+    # no two values less than 499 can add up to 1000
+    for l in lower_set:
+        for u in upper_set:
+            if ( l + u == 1000):
+                return True 
+            else:
+                continue
+
+    return False 
+
+
+
+def test_winner_1( seen_plates = [1, 499, 500, 500, 399, 700]):
+    '''test the two 500's win condition'''
+    if is_winner(seen_plates): # True
+        print( seen_plates, " is a winner")
+
+def test_winner_2 ( seen_plates = [ 300, 700, 499]):
+    '''test the upper and lower add'''
+    if is_winner(seen_plates): # True 
+        print( seen_plates, " is a winner")
+
     
 def main():
     seen_plates = [] # list of integers, containing the plates seen on the trip 
+    test_winner_1()
+    test_winner_2()
+    
+    
+main()
