@@ -1,7 +1,7 @@
 # !/bin/bash/python3
 # Daylan Stoica
 # @DaylanDStoica
-
+# 6 December 2022
 
 '''
 Concealed Square
