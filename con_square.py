@@ -79,8 +79,8 @@ import math
 def main():
     highest_possible_square = 1929394959697989990 # the highest possible value that any square of a valid form can have 
     lowest_possible_square =  1020304050607080900
-    max_square_root = int( math.sqrt(highest_possible_square) ) # the highest the base-number can be
-    min_square_root = int( math.sqrt(lowest_possible_square ) ) # the lowest the base_number can be
+    max_square_root = int( math.sqrt(highest_possible_square) ) # the highest the base-number can be, 1389026623
+    min_square_root = int( math.sqrt(lowest_possible_square ) ) # the lowest the base_number can be,  1010101010
     
     print( min_square_root) # 1010101010
     for x in range( min_square_root , max_square_root + 1, 10): # check for 1 above the highest possible base-square value 
@@ -88,8 +88,9 @@ def main():
         # pass
         if square_is_valid(x):
             print("found the square-base:           ", x)
+            break # upon finding the desired base, exit
         else:
             print( x, " is not the valid square-base")
-            pass
+            
             
 main()
