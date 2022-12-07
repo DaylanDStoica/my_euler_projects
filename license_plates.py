@@ -17,3 +17,28 @@ Give your answer rounded to 8 decimal places behind the decimal point.
 
 Note: We assume that each licence plate seen is equally likely to have any three digit number on it.
 '''
+
+# note: with range of 000-999, then the average would be 499.5 for the number on license plates
+# add up to 1000, exactly 
+
+
+def is_winner ( seen_plates):
+    # determine if the list of values presented so far, pass the win condition 
+    lower_set = [] # will hold less than 500
+    upper_set = [] # will hold more than 500 
+    # when the lower and upper are compared, may add up to 1000
+    median = [] # only contain values of 500, two 500s add up to win
+    for x in seen_plates:
+        if x > 500:
+            upper_set.append(x)
+        elif x < 500:
+            lower_set.append(x)
+        elif x == 500: 
+            median.append(x)
+            if median.length() >= 2: # if there are more than 2 500's, 
+                # 500*2 = 1000, winner 
+                return True 
+            
+    
+def main():
+    seen_plates = [] # list of integers, containing the plates seen on the trip 
