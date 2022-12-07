@@ -72,5 +72,24 @@ def proof_2_digits_zero():
                 # if the squares last 2 digits is not 0, but last digit is 0
                 count_non_double_zeros += 1
                 
-    print( " the number of squares that end in one zero but not two zeros: ", count_non_double_zeros)
+    print( " the number of squares that end in one zero but not two zeros: ", count_non_double_zeros) # 0
 # proof_2_digits_zero()
+
+import math 
+def main():
+    highest_possible_square = 1929394959697989990 # the highest possible value that any square of a valid form can have 
+    lowest_possible_square =  1020304050607080900
+    max_square_root = int( math.sqrt(highest_possible_square) ) # the highest the base-number can be
+    min_square_root = int( math.sqrt(lowest_possible_square ) ) # the lowest the base_number can be
+    
+    print( min_square_root) # 1010101010
+    for x in range( min_square_root , max_square_root + 1, 10): # check for 1 above the highest possible base-square value 
+        # because of the proof that valids can only be of double-zero endings, can increment the loop in 10's
+        # pass
+        if square_is_valid(x):
+            print("found the square-base:           ", x)
+        else:
+            print( x, " is not the valid square-base")
+            pass
+            
+main()
