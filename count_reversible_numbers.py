@@ -14,7 +14,7 @@ Leading zeroes are not allowed in either n or reverse(n).
 
 There are 120 reversible numbers below one-thousand.
 
-How many reversible numbers are there below one-billion (109)?
+How many reversible numbers are there below one-billion (10**9)?
 '''
 
 def reverse(num):
@@ -31,16 +31,42 @@ def reverse(num):
     return rev_num 
 
 def is_valid(num):
-    '''if the sum of the number and reversed-number are odd, return True'''
+    '''if the sum of the number and reversed-number are odd, return True
+    leading zeroes in either direction are unacceptable'''
+    
+    # check for leading zeroes, that exist when reversed 
+    if num % 10 == 0: # right-most digit is 0, that is a leading zero when flipped 
+        return False
+    
+    # check that the sum of [ num + reverse(num)] is odd
     reversed_sum = num + reverse(num)
     if reversed_sum % 2 == 1 : # if is odd
         return True 
     else:
         return False 
     
+
+def base_case_test():
+    '''there are 120 reversible numbers before one-thousand
+    check that 120 is returned'''
+    count = 0
+    for x in range(1, 1000): #less than one-thousand
+        if is_valid(x):
+            count += 1
+            
+    print( " count of reversible numbers is: ", count)
+    print("         count should be 120")
     
+base_case_test()
+
+
 def main():
     # print ( 1023, reverse(1023) , 1023 + reverse(1023)) # test
-    pass
-    
-main()
+    count = 0
+    for x in range(1, 10**9): #from 1 to 1 billion
+        # sum_reversed = x + reverse(x)
+        if is_valid(x):
+            count += 1
+    return count
+# main()
+
