@@ -14,8 +14,18 @@ are consecutive primes is 10. The sum of all such integers n below one-million i
 What is the sum of all such integers n below 150 million?
 '''
 
-def check_for_consec_primes():
-    pass 
+from shared_math import is_prime
+def check_for_consec_primes( num1, num2):
+    '''check that the given numbers are simultaneously:
+    1. primes
+    2. consecutive primes'''
+    result = True 
+    if ( not is_prime(num1) ) or ( not is_prime(num2) ):
+        # if either of the given numbers are not primes, they cannot be consecutive primes
+        # immediately return False
+        result = False 
+        return result 
+    
 
 def check_integer(num):
     '''check if the given integer passes the conditions:
@@ -24,6 +34,9 @@ def check_integer(num):
     '''
     result = True 
     
+    sq_num = num * num 
+    primes_list = [ sq_num + 1, sq_num + 3, sq_num + 7, sq_num + 9, sq_num + 13, sq_num + 27]
+    # the list of primes to be checked if they are consecutive
     return result 
 
 def test_base_case ():
