@@ -26,6 +26,17 @@ def check_for_consec_primes( num1, num2):
         result = False 
         return result 
     
+    for x in range ( num1, num2):
+        if is_prime(x):
+            # if there is a prime integer between the two given prime integers
+            # return False 
+            result = False
+            return result 
+            break 
+        else:
+            continue
+    
+    return result
 
 def check_integer(num):
     '''check if the given integer passes the conditions:
