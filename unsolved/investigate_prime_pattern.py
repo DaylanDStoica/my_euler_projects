@@ -26,12 +26,16 @@ def check_for_consec_primes( num1, num2):
         result = False 
         return result 
     
-    for x in range ( num1, num2, 2):
+    # print( num1, " and ", num2, " are both prime numbers. \n Checking if they are consecutive primes...")
+    for x in range ( num1+2, num2, 2):
         #check all numbers between the two numbers, confirmed primes
         # because, with the reasoning of all primes are odd, except two, can increment by 2
+        # for the same logic, begin the search +2 above the lower number
         if is_prime(x):
             # if there is a prime integer between the two given prime integers
-            # return False 
+            # return False
+            # print( x ," is a prime number between: ", num1, " and " , num2)
+            # print( num1, " and " , num2, " are not consecutive primes")
             result = False
             return result 
             break 
@@ -55,7 +59,7 @@ def check_integer(num):
         # compare the two numbers, going from the 
     for x in range( len(primes_list)-1 ):
         # check each index in the primes_list, and the next index for consecutively prime
-        if check_for_consec_primes( primes_list[x], primes_list(x+1)):
+        if check_for_consec_primes( primes_list[x], primes_list[x+1]):
             continue 
         else:
             result = False 
@@ -67,4 +71,7 @@ def test_base_case ():
         if check_integer(x):
             print(x, " passes the conditions") # 10 should be the only one that passes
         else:
-            print( x, " does not pass teh conditions")
+            print( x, " does not pass the conditions")
+            
+            
+test_base_case()
