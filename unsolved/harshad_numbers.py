@@ -47,7 +47,7 @@ def base_case_test():
             print(x, " is valid")
             sum += x 
     # should return 90619
-    print(" sum is: ", sum)
+    print(" sum is: ", sum, " ... should be 90619")
     return sum 
 
 base_case_test()
