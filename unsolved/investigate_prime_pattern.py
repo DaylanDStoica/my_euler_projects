@@ -74,4 +74,37 @@ def test_base_case ():
             print( x, " does not pass the conditions")
             
             
-test_base_case()
+# test_base_case()
+
+def sum_the_candidates( num_list):
+    ''' given the list of valid integers, sum the contents'''
+    sum = 0
+    for x in num_list:
+        sum += x 
+    return sum 
+
+
+def driver_function():
+    '''the body of execution'''
+    candidate_list = []
+    print( "going up to 15,000,000")
+    for x in range(3, 15000000): 
+        # from 3 to 15 million, 
+        if check_integer(x):
+            print(x, " is a valid integer, adding to the list")
+            candidate_list.append(x) 
+        elif x % 1000 == 0:
+            # occassionally give status of the process
+            print("reached ", x)
+    print(" 15,000,000 reached")
+    print("Candadate list")
+    print( candidate_list)
+    sum = sum_the_candidates(candidate_list)
+    print( "sum of the candidates: ", sum)
+    
+    
+
+def main():
+    driver_function()
+    
+main()
