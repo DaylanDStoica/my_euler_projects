@@ -20,9 +20,13 @@ def check_for_consec_primes( num1, num2):
     1. primes
     2. consecutive primes'''
     result = True 
-    if ( not is_prime(num1) ) or ( not is_prime(num2) ):
+    # if ( not is_prime(num1) ) or ( not is_prime(num2) ): # by breaking into two parts, reduces the need for redundant checks 
+    if ( not is_prime(num1) ):
         # if either of the given numbers are not primes, they cannot be consecutive primes
         # immediately return False
+        result = False 
+        return result 
+    elif ( not is_prime(num2) ):
         result = False 
         return result 
     
@@ -95,6 +99,7 @@ def driver_function():
             candidate_list.append(x) 
         elif x % 1000 == 0:
             # occassionally give status of the process
+            # provides feedback that the program is running
             print("reached ", x)
     print(" 15,000,000 reached")
     print("Candadate list")
