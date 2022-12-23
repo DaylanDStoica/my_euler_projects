@@ -28,3 +28,26 @@ You are given that the sum of the strong, right truncatable Harshad primes less 
 
 Find the sum of the strong, right truncatable Harshad primes less than 10^14.
 '''
+
+
+from shared_math import sum_digits
+def is_divisible_by_digisum(num):
+    result = False 
+    digit_sum = sum_digits(num)
+    if num % digit_sum == 0:
+        # if the sum of the given number's digits, are evenly divivided by the given number, return True 
+        result = True 
+    return result 
+
+
+def base_case_test():
+    sum = 0 
+    for x in range(1,10000):
+        if is_divisible_by_digisum(x):
+            print(x, " is valid")
+            sum += x 
+    # should return 90619
+    print(" sum is: ", sum)
+    return sum 
+
+base_case_test()
