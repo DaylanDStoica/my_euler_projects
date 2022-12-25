@@ -39,7 +39,18 @@ def is_divisible_by_digisum(num):
         result = True 
     return result 
 
-
+def is_strong_harshad(num):
+    ''' if the given number is divisible by the digit_sum
+    and when divided by the sum results in a prime'''
+    if not is_divisible_by_digisum(num): # if the number is not divisible, return False
+        return False 
+    else:
+        digit_sum = sum_digits(num)
+        divised_num = num / digit_sum # divided by the sum of digits
+        if is_prime(divised_num):
+            return True 
+    return False
+    
 def base_case_test():
     sum = 0 
     for x in range(1,10000):
