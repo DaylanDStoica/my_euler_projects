@@ -39,6 +39,7 @@ def is_divisible_by_digisum(num):
         result = True 
     return result 
 
+from shared_math import is_prime
 def is_strong_harshad(num):
     ''' if the given number is divisible by the digit_sum
     and when divided by the sum results in a prime'''
