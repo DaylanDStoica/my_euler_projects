@@ -1,7 +1,7 @@
 # Daylan Stoica
 # @DaylanDStoica
 
-#19 October 2022
+# 1 January 2023
 
 '''
 Digit power sum
@@ -92,5 +92,17 @@ def main():
     return num , passing_array
 
 
-main()
+# main()
 
+def base_case_test():
+    '''You are given that a2 = 512 and a10 = 614656.'''
+    count_valids = 0 
+    x = 10
+    print("base case test: a2 = 512, a10 = 614656")
+    while count_valids < 10: # go up to a10
+        if check_digitsum_power(x): # if x is a valid number 
+            count_valids += 1
+            print( "a", count_valids, " = ", x)
+        x += 1
+        
+base_case_test()
