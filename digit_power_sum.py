@@ -49,7 +49,7 @@ def sum_the_digits( number):
         sum += x
     return sum
 
-def check_digitsum_power ( number):
+def check_digitsum_power ( number, power_limit = 10):
     ''' check if the sum of digits from number, when given any exponent, 
     returns the starting number
 
@@ -57,7 +57,8 @@ def check_digitsum_power ( number):
     '''
     result = False
     digit_sum = sum_the_digits(number)
-    for power in range(1, 10):
+    # for power in range(1, 10): # test the various exponent values
+    for power in range(1, power_limit):
         if number == digit_sum**power:
             result = True 
             print( number, "passes the digitsum_power")
@@ -105,4 +106,31 @@ def base_case_test():
             print( "a", count_valids, " = ", x)
         x += 1
         
-base_case_test()
+# base_case_test()
+
+def main1():
+    ''' run from a1 to a30'''
+    
+    count_valids = 0 
+    x = 10
+    print("base case test: a2 = 512, a10 = 614656")
+    while count_valids < 30: # go up to a30
+        if check_digitsum_power(x): # if x is a valid number 
+            count_valids += 1
+            print( "a", count_valids, " = ", x)
+        x += 1
+        
+        
+# main1()
+def get_the_valids( max_count = 30):
+    '''the main function, going through numbers, and checking their validity for the condition'''
+    count_valids = 0 
+    x = 10 # starting value
+    print("base case test: a2 = 512, a10 = 614656")
+    while count_valids < max_count: # go up to a10
+        if check_digitsum_power(x, 20): # if x is a valid number 
+            count_valids += 1
+            print( "a", count_valids, " = ", x)
+        x += 1
+        
+get_the_valids()
