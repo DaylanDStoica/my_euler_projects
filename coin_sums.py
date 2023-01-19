@@ -25,3 +25,5 @@ def develop_path():
     '''create a list of values corresponding to the value of coins
     equal to 200p'''
     return []
+
+potential_coins = [ 1, 2, 5, 20, 50, 100] # 2 pounds equals 200 units 
