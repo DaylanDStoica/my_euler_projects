@@ -25,3 +25,17 @@ def develop_path():
     '''create a list of values corresponding to the value of coins
     equal to 200p'''
     return []
+
+potential_coins = [ 1, 2, 5, 20, 50, 100] # 2 pounds equals 200 units 
+
+def build_coin_list ( ones, twos, fives, twenties, fifties, hundreds):
+    # given a list of integers
+    coin_count_list = [ones, twos, fives, twenties, fifties, hundreds]
+        # number of each coin, corresponding to the value of each coin. 
+        # multiply to get the total value of the coins
+    coin_value_sum = 0
+
+    for x in len(potential_coins):
+        coin_value_sum += potential_coins[x] * coin_count_list[x]
+
+    return coin_value_sum
