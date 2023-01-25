@@ -48,15 +48,16 @@ def find_the_highest_sum( matrix):
     
     return sum 
   
-base_matrix = [
+base_matrix = """[
   7  53 183 439 863
 497 383 563  79 973
 287  63 343 169 583
 627 343 773 959 943
 767 473 103 699 303 
-] # should equal 3315
+]""" # should equal 3315
 
-final_matrix = [\
+# with the matrix data given as a string, convert into a 2D matrix, with each row separated by a new line
+string_matrix = """[\
   7  53 183 439 863 497 383 563  79 973 287  63 343 169 583\
 627 343 773 959 943 767 473 103 699 303 957 703 583 639 913\
 447 283 463  29  23 487 463 993 119 883 327 493 423 159 743\
@@ -72,8 +73,11 @@ final_matrix = [\
  34 124   4 878 450 476 712 914 838 669 875 299 823 329 699\
 815 559 813 459 522 788 168 586 966 232 308 833 251 631 107\
 813 883 451 509 615  77 281 613 459 205 380 274 302  35 805 \
-]
+]"""
 
+# split the matrix string into a 2d matrix
+final_matrix = string_matrix
 '''
 go through the matrix, finding the coordinates of the next largest number
 '''
+
