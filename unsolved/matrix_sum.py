@@ -76,7 +76,20 @@ string_matrix = """[\
 ]"""
 
 # split the matrix string into a 2d matrix
-final_matrix = string_matrix
+# final_matrix = string_matrix
+final_matrix = [ r.split(' ') for r in string_matrix.split('\n') ]
+
+#test: print the type and values before the conversion, and after conversion into matrix
+print(type( string_matrix))
+print( string_matrix)
+
+
+# final_matrix.drop('[', ']')
+print(type(final_matrix))
+print(final_matrix)
+
+
+
 '''
 go through the matrix, finding the coordinates of the next largest number
 '''
