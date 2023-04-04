@@ -24,9 +24,12 @@ using namespace std;
 int get_sum_of_squares ( int top_value){
     int sum = 0;
 
+    printf(" sum the squares\n\n");
     for ( int x = 0; x < top_value ; x++){
+        printf (" adding %i to %i\n", x*x, sum);
         sum += x*x;  // add the square of the current natural number
     }
+    printf("the sum is %i\n\n", sum);
     return sum;
 }
 // def get_square_of_sum (top_value):
@@ -36,11 +39,14 @@ int get_sum_of_squares ( int top_value){
 int get_square_of_sum ( int top_value){
     int sum = 0;
 
+    printf( "sum then square \n\n");
     for ( int x = 0; x < top_value; x++){
+        printf( "adding %i to %i\n", x, sum);
         sum += x;
     }
 
     int squared_sum = sum*sum;
+    printf(" %i is the square of %i\n\n", squared_sum, sum);
     return squared_sum;
 }
 //     pass
