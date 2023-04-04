@@ -64,7 +64,9 @@ int get_difference ( int top_value){
 }
 
 int main(){
-    int top_value = 10;
+    // int top_value = 10; // base case
+
+    int top_value = 100;
     int difference = get_difference( top_value);
 
     cout << difference;
