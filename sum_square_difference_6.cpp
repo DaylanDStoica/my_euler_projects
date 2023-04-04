@@ -25,7 +25,7 @@ int get_sum_of_squares ( int top_value){
     int sum = 0;
 
     printf(" sum the squares\n\n");
-    for ( int x = 0; x < top_value ; x++){
+    for ( int x = 0; x <= top_value ; x++){
         printf (" adding %i to %i\n", x*x, sum);
         sum += x*x;  // add the square of the current natural number
     }
@@ -40,7 +40,7 @@ int get_square_of_sum ( int top_value){
     int sum = 0;
 
     printf( "sum then square \n\n");
-    for ( int x = 0; x < top_value; x++){
+    for ( int x = 0; x <= top_value; x++){
         printf( "adding %i to %i\n", x, sum);
         sum += x;
     }
