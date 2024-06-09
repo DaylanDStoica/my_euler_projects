@@ -29,3 +29,14 @@ def get_prime_list_sum ( number) :
 
 # x = 18
 # print( x , " prime list: ", build_prime_list(x), ". Sum of primes: ", get_prime_list_sum(x))
+
+
+# gather list of numbers with a SumOfPrimeList that mtaches the given integer (k), to be used in the grander Summation function S(k)
+# such that List(8) = [15, 16, 18]
+#   with each element consisting of numbers with a prime list that, when summed together, equals the given value (8)
+# S(k) = Sum( List(8) ) = 15+16+18 = 49
+
+
+# TODO: 
+# 1. create list creation function for the given number of prime sums , List(k)
+# 2. sum the list together, Sum( List(k) )
