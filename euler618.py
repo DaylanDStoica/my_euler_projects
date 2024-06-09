@@ -14,3 +14,18 @@
 
 
 from shared_math import build_prime_list
+# build_prime_list will return the list of prime numbers , including repeats, to get the given positive integer, not including 1
+
+
+def get_prime_list_sum ( number) : 
+    # given a poistive integer, use the build_prime_list function to get the list of primes, 
+    # and return the summation of the contents of the list
+    prime_list = build_prime_list( number) 
+    sum = 0
+    for x in prime_list:
+        sum += x 
+
+    return sum
+
+# x = 18
+# print( x , " prime list: ", build_prime_list(x), ". Sum of primes: ", get_prime_list_sum(x))
