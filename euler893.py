@@ -20,16 +20,17 @@
 
 
 # dictionary for what each char requires how many matchsticks
+# gives the value of each token
 match_stick_vals = {
-    '1' = 2, 
-    '2' = 5, 
-    '3' = 5, 
-    '4' = 5, 
-    '5' = 5,
-    '6' = 6,
-    '7' = 4,
-    '8' = 7,
-    '9' = 6,
-    '+' = 2,
-    'x' = 2,
+    '1' : 2, 
+    '2' : 5, 
+    '3' : 5, 
+    '4' : 5, 
+    '5' : 5,
+    '6' : 6,
+    '7' : 4,
+    '8' : 7,
+    '9' : 6,
+    '+' : 2,
+    'x' : 2,
 }
