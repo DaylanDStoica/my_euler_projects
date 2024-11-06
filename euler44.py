@@ -79,7 +79,7 @@ def main_part2():
     count = 0
     x = 1
     penta_list = []
-    while ( count < 100):
+    while ( count < 1000):
         # until the list is 100 pentagonal numbers long, find more pentagonal numbers
         if ( is_penta_num(x)):
             print(f" {x} is a pentagonal number, adding to the list")
@@ -88,5 +88,36 @@ def main_part2():
         x += 1
     print(f"the pentagonal list:  {penta_list}")
 
+    return penta_list
 
-main_part2()
+
+# main_part2()
+
+from time import sleep
+from time import time
+def main_part3():
+    # build the comparison function, to determine what memmbers of the penta_list,
+    # when summed and differenced, produce a pentagonal number
+
+    start_time = time()
+    penta_list = main_part2()
+
+    for x in penta_list:
+        for y in penta_list:
+            if ( x > y ): # on a later loop, avoid checking the values that have already been compared to save time and skip to next cycle
+                continue # Tested with a list of 1000 long, and saved over 0.5 second, from 1.7751317024230957 seconds to  1.2495567798614502 seconds execution time
+            sum_result = is_penta_num( x + y) # check the pentagonal status of sum, boolean
+            diff_result = is_penta_num ( abs ( x - y ) ) # check the pentagonal status of the difference, boolean
+
+            if ( sum_result): 
+                print( f"{x} and {y} sum ( {x+y} ) is pentagonal)")
+            if ( diff_result):
+                print( f"{x} and {y} difference ( { abs(x-y )}  )is pentagonal)")
+
+            if ( sum_result and diff_result):
+                print( f" {x} and {y} sum and difference are pentagoanl")
+                sleep(3)
+    end_time = time()
+
+    print(f" time elapsed: {end_time - start_time}")
+main_part3()
