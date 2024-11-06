@@ -45,17 +45,17 @@ def is_penta_num ( num):
 def test_main():
     for x in range( 1, 100):
         temp_pent = get_penta_num(x)
-        print(" testing input integer %i with given pentagonal output %i", x, temp_pent)
+        print(f" testing input integer {x} with given pentagonal output {temp_pent}", x, temp_pent)
 
         if ( is_penta_num( temp_pent) ):
-            print( " %i is a pentagonal number", temp_pent)
+            print( f" {temp_pent} is a pentagonal number", temp_pent)
         else:
-            print(" somehow (???)   %i is not pentagonal, note this error", temp_pent)
+            print(f" somehow (???)   {temp_pent} is not pentagonal, note this error", temp_pent)
 
         if ( is_penta_num ( x)):
-            print( " %i is a pentagonal number", x)
+            print( f" {x} is a pentagonal number", x)
         else: 
-            print(" %i is not pentagonal ", x)
+            print(f" {x} is not pentagonal ", x)
 
         print("/n")
 
