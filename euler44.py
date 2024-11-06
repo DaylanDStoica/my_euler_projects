@@ -24,5 +24,11 @@ def is_penta_num ( num):
     # method: invert the pentagonal equation, and if an integer comes out, is True
     # else: return False
 
-    # TODO: develop inverted formula
+
+    
+    # Done: develop inverted formula, completed
+    # from original   P(x) = (3x*x - x) / 2
+    # inverse of Pentagonal number ( P^-1(x) ) = 1/6 * ( 1 +- sqrt ( 24*x + 1 ) )
+
+
     return False
