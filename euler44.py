@@ -19,6 +19,7 @@ def get_penta_num ( num ):
     # return the pentagonal number generated from the given parameter
     return num*( 3*num - 1) / 2
 
+from math import sqrt
 def is_penta_num ( num):
     # check that the given parameter is pentagonal
     # method: invert the pentagonal equation, and if an integer comes out, is True
@@ -29,6 +30,9 @@ def is_penta_num ( num):
     # Done: develop inverted formula, completed
     # from original   P(x) = (3x*x - x) / 2
     # inverse of Pentagonal number ( P^-1(x) ) = 1/6 * ( 1 +- sqrt ( 24*x + 1 ) )
+
+    # with some insight, the domain of valid Pentagonal numbers is determined by the square-root portion of the inverse equation.
+    # With the provided example numbers and testings, so long as the number inputed into the square-root expression results in a positive integer, the given number will be pentagonal.
 
 
     return False
