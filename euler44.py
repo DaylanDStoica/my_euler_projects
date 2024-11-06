@@ -42,22 +42,24 @@ def is_penta_num ( num):
     return False
 
 
-def test_main():
+def test_main_part1():
+    # test the first part: checking that the pentagonal equation functions work
     for x in range( 1, 100):
         temp_pent = get_penta_num(x)
-        print(f" testing input integer {x} with given pentagonal output {temp_pent}", x, temp_pent)
+        print(f" testing input integer {x} with given pentagonal output {temp_pent}")
 
         if ( is_penta_num( temp_pent) ):
-            print( f" {temp_pent} is a pentagonal number", temp_pent)
+            print( f" {temp_pent} is a pentagonal number")
         else:
-            print(f" somehow (???)   {temp_pent} is not pentagonal, note this error", temp_pent)
+            print(f" somehow (???)   {temp_pent} is not pentagonal, note this error")
             break
 
+        
         if ( is_penta_num ( x)):
-            print( f" {x} is a pentagonal number", x)
+            print( f" {x} is a pentagonal number")
         else: 
-            print(f" {x} is not pentagonal ", x)
+            print(f" {x} is not pentagonal ")
 
         print("/n")
 
-test_main()
+test_main_part1()
