@@ -36,7 +36,7 @@ def is_penta_num ( num):
 
     square_root_result = sqrt( 24*num + 1)
 
-    if ( type( square_root_result) == int and ( square_root_result >= 0) ): # the square root is positive integer
+    if ( square_root_result.is_integer() and ( square_root_result >= 0) ): # the square root is positive integer
         return True
 
     return False
@@ -51,6 +51,7 @@ def test_main():
             print( f" {temp_pent} is a pentagonal number", temp_pent)
         else:
             print(f" somehow (???)   {temp_pent} is not pentagonal, note this error", temp_pent)
+            break
 
         if ( is_penta_num ( x)):
             print( f" {x} is a pentagonal number", x)
