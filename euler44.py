@@ -42,8 +42,12 @@ def is_penta_num ( num):
         # given number passes first verification, proceed to deeper steps
         # stopping now would include non-pentagonal numbers, that do not pass the fraction portion
 
-        # TODO: expand this portion of if-blocks to include the entire inverse function
-        return True
+        # CompletedTODO: expand this portion of if-blocks to include the entire inverse function
+        deeper_inverse_eqn_check = ( 1 + square_root_result) / 6
+        # if the deeper_eqn_check variable can still be considered an integer, it passes
+        if ( deeper_inverse_eqn_check.is_integer() ):
+            return True
+        # return True
 
     return False
 
