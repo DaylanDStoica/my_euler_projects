@@ -34,5 +34,29 @@ def is_penta_num ( num):
     # with some insight, the domain of valid Pentagonal numbers is determined by the square-root portion of the inverse equation.
     # With the provided example numbers and testings, so long as the number inputed into the square-root expression results in a positive integer, the given number will be pentagonal.
 
+    square_root_result = sqrt( 24*num + 1)
+
+    if ( type( square_root_result) == int and ( square_root_result >= 0) ): # the square root is positive integer
+        return True
 
     return False
+
+
+def test_main():
+    for x in range( 1, 100):
+        temp_pent = get_penta_num(x)
+        print(" testing input integer %i with given pentagonal output %i", x, temp_pent)
+
+        if ( is_penta_num( temp_pent) ):
+            print( " %i is a pentagonal number", temp_pent)
+        else:
+            print(" somehow (???)   %i is not pentagonal, note this error", temp_pent)
+
+        if ( is_penta_num ( x)):
+            print( " %i is a pentagonal number", x)
+        else: 
+            print(" %i is not pentagonal ", x)
+
+        print("/n")
+
+test_main()
